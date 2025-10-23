@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos de JavaScript</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .example {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        .example p {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            color: #ff6f61;
+            font-weight: bold;
+        }
+
+        .button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 10px;
+        }
+
+        .button:hover {
+            background-color: #ff3b2f;
+            transform: scale(1.1);
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.1em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ejemplos de JavaScript</h1>
+
+        <!-- Constantes Matemáticas -->
+        <div class="example">
+            <h2>Constantes Matemáticas</h2>
+            <div class="output" id="mathConstants"></div>
+        </div>
+
+        <!-- Redondeo y Truncamiento -->
+        <div class="example">
+            <h2>Redondeo y Truncamiento</h2>
+            <div class="output" id="rounding"></div>
+        </div>
+
+        <!-- Signo de un Número -->
+        <div class="example">
+            <h2>Signo de un Número</h2>
+            <div class="output" id="numberSign"></div>
+        </div>
+
+        <!-- Número Aleatorio -->
+        <div class="example">
+            <h2>Número Aleatorio</h2>
+            <div class="output" id="randomNumber"></div>
+            <button class="button" onclick="generarAleatorio()">Generar Aleatorio</button>
+        </div>
+
+        <!-- Condicionales -->
+        <div class="example">
+            <h2>Condicionales</h2>
+            <div class="output" id="conditionals"></div>
+        </div>
+
+        <!-- Estructura Switch -->
+        <div class="example">
+            <h2>Estructura Switch</h2>
+            <div class="output" id="switchStructure"></div>
+        </div>
+
+        <!-- Bucles -->
+        <div class="example">
+            <h2>Bucles</h2>
+            <div class="output" id="loops"></div>
+        </div>
+    </div>
+
+    <script>
+        // Constantes Matemáticas
+        const E = Math.E;
+        const PI = Math.PI;
+        const SQRT2 = Math.SQRT2;
+        const SQRT1_2 = Math.SQRT1_2;
+        const LN2 = Math.LN2;
+        const LN10 = Math.LN10;
+
+        document.getElementById("mathConstants").innerHTML = `
+            <p><b>E:</b> ${E}</p>
+            <p><b>PI:</b> ${PI}</p>
+            <p><b>SQRT2:</b> ${SQRT2}</p>
+            <p><b>SQRT1_2:</b> ${SQRT1_2}</p>
+            <p><b>LN2:</b> ${LN2}</p>
+            <p><b>LN10:</b> ${LN10}</p>
+        `;
+
+        // Redondeo y Truncamiento
+        let numero = 4.567;
+        document.getElementById("rounding").innerHTML = `
+            <p><b>Número original:</b> ${numero}</p>
+            <p><b>Math.round:</b> ${Math.round(numero)}</p>
+            <p><b>Math.ceil:</b> ${Math.ceil(numero)}</p>
+            <p><b>Math.floor:</b> ${Math.floor(numero)}</p>
+            <p><b>Math.trunc:</b> ${Math.trunc(numero)}</p>
+        `;
+
+        // Signo de un Número
+        let numeroPositivo = 5;
+        let numeroNegativo = -3;
+        let numeroCero = 0;
+        document.getElementById("numberSign").innerHTML = `
+            <p><b>Signo de ${numeroPositivo}:</b> ${Math.sign(numeroPositivo)}</p>
+            <p><b>Signo de ${numeroNegativo}:</b> ${Math.sign(numeroNegativo)}</p>
+            <p><b>Signo de ${numeroCero}:</b> ${Math.sign(numeroCero)}</p>
+        `;
+
+        // Número Aleatorio
+        function generarAleatorio() {
+            let aleatorio = Math.random();
+            document.getElementById("randomNumber").innerHTML = `
+                <p><b>Número aleatorio entre 0 y 1:</b> ${aleatorio}</p>
+            `;
+        }
+        generarAleatorio();
+
+        // Condicionales
+        let temperatura = 29;
+        let mensajeTemperatura;
+        if (temperatura < 10) {
+            mensajeTemperatura = "Hace frío";
+        } else if (temperatura < 25) {
+            mensajeTemperatura = "Está fresco";
+        } else {
+            mensajeTemperatura = "Hace calor";
+        }
+        document.getElementById("conditionals").innerHTML = `
+            <p><b>Temperatura:</b> ${temperatura}°C</p>
+            <p><b>Mensaje:</b> ${mensajeTemperatura}</p>
+        `;
+
+        // Estructura Switch
+        let diaSemana = 3;
+        let nombreDia;
+        switch(diaSemana) {
+            case 1:
+                nombreDia = "Lunes";
+                break;
+            case 2:
+                nombreDia = "Martes";
+                break;
+            case 3:
+                nombreDia = "Miércoles";
+                break;
+            case 4:
+                nombreDia = "Jueves";
+                break;
+            case 5:
+                nombreDia = "Viernes";
+                break;
+            default:
+                nombreDia = "Fin de semana";
+        }
+        document.getElementById("switchStructure").innerHTML = `
+            <p><b>Hoy es:</b> ${nombreDia}</p>
+        `;
+
+        // Bucles
+        let buclesOutput = "<p><b>Bucle for:</b></p>";
+        for (let i = 0; i < 5; i++) {
+            buclesOutput += `<p>El número es ${i}</p>`;
+        }
+
+        buclesOutput += "<p><b>Bucle for...in:</b></p>";
+        const persona = {nombre: "John", apellido: "Lopez", edad: 25};
+        for (let key in persona) {
+            buclesOutput += `<p>${key}: ${persona[key]}</p>`;
+        }
+
+        buclesOutput += "<p><b>Bucle for...of:</b></p>";
+        const colores = ["Azul", "Blanco", "Amarillo"];
+        for (let color of colores) {
+            buclesOutput += `<p>${color}</p>`;
+        }
+
+        buclesOutput += "<p><b>Bucle while:</b></p>";
+        let contador = 0;
+        while (contador < 3) {
+            buclesOutput += `<p>Contador: ${contador}</p>`;
+            contador++;
+        }
+
+        document.getElementById("loops").innerHTML = buclesOutput;
+    </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condicionales en JavaScript</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .greeting {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: #ff6f61;
+            font-weight: bold;
+        }
+
+        .button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 10px;
+        }
+
+        .button:hover {
+            background-color: #ff3b2f;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Condicionales en JavaScript</h1>
+
+        <!-- Ejemplo 1: if -->
+        <div>
+            <h2>Condicional <code>if</code></h2>
+            <p>Muestra "¡Buen día!" si la hora es menor a las 18:00:</p>
+            <p id="demo1" class="greeting">¡Buenas noches!</p>
+        </div>
+
+        <!-- Ejemplo 2: if...else -->
+        <div>
+            <h2>Condicional <code>if...else</code></h2>
+            <p>Un saludo basado en la hora actual:</p>
+            <p id="demo2" class="greeting"></p>
+        </div>
+
+        <!-- Botón para actualizar la hora -->
+        <button class="button" onclick="actualizarSaludo()">Actualizar Saludo</button>
+    </div>
+
+    <script>
+        // Función para mostrar el saludo basado en la hora
+        function mostrarSaludo() {
+            const hora = new Date().getHours();
+
+            // Ejemplo 1: if
+            if (hora < 18) {
+                document.getElementById("demo1").innerHTML = "¡Buen día!";
+            }
+
+            // Ejemplo 2: if...else
+            let saludo;
+            if (hora < 18) {
+                saludo = "¡Buen día!";
+            } else {
+                saludo = "¡Buenas noches!";
+            }
+            document.getElementById("demo2").innerHTML = saludo;
+        }
+
+        // Función para actualizar el saludo al hacer clic en el botón
+        function actualizarSaludo() {
+            mostrarSaludo();
+        }
+
+        // Mostrar el saludo al cargar la página
+        //mostrarSaludo();
+    </script>
+</body>
+</html>

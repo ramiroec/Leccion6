@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucles y Condicionales en JavaScript</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .example {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        .example p {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            color: #ff6f61;
+            font-weight: bold;
+        }
+
+        .button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 10px;
+        }
+
+        .button:hover {
+            background-color: #ff3b2f;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bucles y Condicionales en JavaScript</h1>
+
+        <!-- Ejemplo 1: switch -->
+        <div class="example">
+            <h2>Condicional <code>switch</code></h2>
+            <p>Determina el día de la semana actual:</p>
+            <p id="switchDemo" class="highlight"></p>
+        </div>
+
+        <!-- Ejemplo 2: for loop -->
+        <div class="example">
+            <h2>Bucle <code>for</code></h2>
+            <p>Genera números del 0 al 4:</p>
+            <p id="forDemo" class="highlight"></p>
+        </div>
+
+        <!-- Ejemplo 3: for...in loop -->
+        <div class="example">
+            <h2>Bucle <code>for...in</code></h2>
+            <p>Recorre las propiedades de un objeto:</p>
+            <p id="forInDemo" class="highlight"></p>
+        </div>
+
+        <!-- Ejemplo 4: for...of loop -->
+        <div class="example">
+            <h2>Bucle <code>for...of</code></h2>
+            <p>Recorre los valores de un array:</p>
+            <p id="forOfDemo" class="highlight"></p>
+        </div>
+
+        <!-- Botón para actualizar los ejemplos -->
+        <button class="button" onclick="actualizarEjemplos()">Actualizar Ejemplos</button>
+    </div>
+
+    <script>
+        // Función para mostrar el día de la semana usando switch
+        function mostrarDia() {
+            let day;
+            switch (new Date().getDay()) {
+                case 0:
+                    day = "Domingo";
+                    break;
+                case 1:
+                    day = "Lunes";
+                    break;
+                case 2:
+                    day = "Martes";
+                    break;
+                case 3:
+                    day = "Miércoles";
+                    break;
+                case 4:
+                    day = "Jueves";
+                    break;
+                case 5:
+                    day = "Viernes";
+                    break;
+                case 6:
+                    day = "Sábado";
+            }
+            document.getElementById("switchDemo").innerHTML = "Hoy es " + day;
+        }
+
+        // Función para generar números usando for loop
+        function generarNumeros() {
+            let text = "";
+            for (let i = 0; i < 5; i++) {
+                text += "El número es " + i + "<br>";
+            }
+            document.getElementById("forDemo").innerHTML = text;
+        }
+
+        // Función para recorrer propiedades de un objeto usando for...in
+        function recorrerObjeto() {
+            const person = { nombre: "John", apellido: "Doe", edad: 25 };
+            let txt = "";
+            for (let x in person) {
+                txt += person[x] + " ";
+            }
+            document.getElementById("forInDemo").innerHTML = txt;
+        }
+
+        // Función para recorrer valores de un array usando for...of
+        function recorrerArray() {
+            const cars = ["BMW", "Volvo", "Toyota"];
+            let text = "";
+            for (let x of cars) {
+                text += x + "<br>";
+            }
+            document.getElementById("forOfDemo").innerHTML = text;
+        }
+
+        // Función para actualizar todos los ejemplos
+        function actualizarEjemplos() {
+            mostrarDia();
+            generarNumeros();
+            recorrerObjeto();
+            recorrerArray();
+        }
+
+        // Mostrar los ejemplos al cargar la página
+        actualizarEjemplos();
+    </script>
+</body>
+</html>
